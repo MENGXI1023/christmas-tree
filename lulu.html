@@ -883,11 +883,9 @@
     );
   }
 
-  // A soft, pulsing core and a rose halo.
-  addHeart(0, 0, 0.022, 0.55, 0.20, 0.30, 38.0, Math.random());
-  addHeart(0, 0, 0.015, 0.95, 0.50, 0.64, 14.0, Math.random());
-  addHeart(0, 0, 0.005, 1.00, 0.72, 0.82, 8.0, Math.random());
-  addHeart(0, 0, 0.010, 0.98, 0.55, 0.68, 4.0, Math.random());
+  // A small pulsing core, bright enough to feel alive but not hide the notch.
+  addHeart(0, 0, 0.012, 0.92, 0.46, 0.60, 9.0, Math.random());
+  addHeart(0, 0, 0.006, 1.00, 0.72, 0.82, 4.5, Math.random());
 
   const sceneArray = new Float32Array(points.concat(heartPoints));
   const sceneBuffer = gl.createBuffer();
@@ -935,9 +933,9 @@
         p.z += cos(uTime * 0.19 + aPhase * 5.0) * 0.13;
       }
 
-      // The heart gently sways, staying readable from the front.
+      // The heart sways only a little, so its silhouette stays readable.
       if (kind > 3.5 && kind < 4.5) {
-        float aa = sin(uTime * 0.42) * 0.23 + 0.08;
+        float aa = sin(uTime * 0.36) * 0.075 + 0.035;
         float c = cos(aa);
         float s = sin(aa);
         p.xz = mat2(c, -s, s, c) * p.xz;
